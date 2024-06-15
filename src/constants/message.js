@@ -14,7 +14,7 @@ const otherUser = {
   color: user1,
 };
 
-const MessageArray = [
+export const MessageArray = [
   {
     ...currentMember,
     text: "Hello friend, How do you do?",
@@ -30,8 +30,7 @@ const MessageArray = [
   },
   {
     ...otherUser,
-    text:
-      "Well, I’m going on well my studies. I am also worried about my exam.",
+    text: "Well, I’m going on well my studies. I am also worried about my exam.",
   },
   {
     ...currentMember,
@@ -63,8 +62,7 @@ const MessageArray = [
   },
   {
     ...otherUser,
-    text:
-      "Yes. I think it’ll be very helpful not only for English but also for other subjects.",
+    text: "Yes. I think it’ll be very helpful not only for English but also for other subjects.",
   },
   {
     ...currentMember,
@@ -76,5 +74,3 @@ const MessageArray = [
   },
   { ...otherUser, text: "You are most welcome." },
 ];
-
-export default MessageArray;

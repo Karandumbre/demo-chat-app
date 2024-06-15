@@ -1,37 +1,24 @@
-import React, { Component } from "react";
-import "./App.css";
+import React, { useState } from "react";
 import Messages from "./components/Messages/Messages";
 import Input from "./components/Input/Input";
-import MessageArray, { currentMember } from "./constants/message";
+import { MessageArray, currentMember } from "./constants/message";
 
-class App extends Component {
-  state = {
-    messages: [...MessageArray],
-    member: {
-      ...currentMember,
-    },
+export const App = () => {
+  const [messages, setMessages] = useState([...MessageArray]);
+
+  const onSendMessage = (message) => {
+    setMessages([...messages, { ...currentMember, text: message }]);
   };
 
-  onSendMessage = (message) => {
-    const messages = this.state.messages;
-    messages.push({ ...this.state.member, text: message });
-    this.setState({ messages });
-  };
-
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <h1>React Chat App</h1>
-        </div>
-        <Messages
-          messages={this.state.messages}
-          currentMember={this.state.member}
-        />
-        <Input onSendMessage={this.onSendMessage} />
+  return (
+    <div className="App">
+      <div className="App-header">
+        <h1>React Chat App</h1>
       </div>
-    );
-  }
-}
+      <Messages messages={messages} currentMember={currentMember} />
+      <Input onSendMessage={onSendMessage} />
+    </div>
+  );
+};
 
 export default App;
